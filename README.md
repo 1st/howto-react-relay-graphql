@@ -107,7 +107,7 @@ You need to run client and server apps at the same time _(use two different term
 cd ~/workspace/my-project/server
 npm relay --watch
 npm start
-# run web app (UI part what we see in the browser)
+# run web app (UI part that we see in the browser)
 cd ~/workspace/my-project/client
 npm start
 ```
