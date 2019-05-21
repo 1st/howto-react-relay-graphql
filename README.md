@@ -78,13 +78,10 @@ Make few changes:
 
 ```json
 {
-  # ...
   "scripts": {
     "start": "BROWSER=none react-scripts start",
-    # ...
     "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx"
-  },
-  # ...
+  }
 }
 ```
 
@@ -92,12 +89,9 @@ Make few changes:
 
 ```json
 {
-  # ...
   "scripts": {
-    "start": "node src/index.js",
-    # ...
-  },
-  # ...
+    "start": "node src/index.js"
+  }
 }
 ```
 
