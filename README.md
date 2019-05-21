@@ -35,21 +35,6 @@ npm init react-app client
 npm init react-app server
 ```
 
-## Run project
-
-You need to run client and server apps at the same time _(use two different terminal windows or tabs for this)_.
-
-```shell
-# run server app (the API server based on GraphQL)
-cd ~/workspace/my-project/server
-npm start
-# run web app (UI part what we see in the browser)
-cd ~/workspace/my-project/client
-npm start
-```
-
-To stop server, press `Cmd + C` _(or `Ctrl + C`)_.
-
 ## Adding TypeScript
 
 You can use `TypeScript` to improve code quality.
@@ -60,14 +45,83 @@ This [manual](https://facebook.github.io/create-react-app/docs/adding-typescript
 
 We use Relay in the client app to comunicate with GraphQL server.
 
+```shell
+cd ~/workspace/my-project/client
+npm install --save react react-dom react-relay
+# then add some development-only packages
+npm install --save-dev babel-plugin-relay relay-compiler graphql
+```
+
+Use this [manual](https://facebook.github.io/create-react-app/docs/adding-relay) for more details.
+
 ## Adding GraphQL
 
 GraphQL is used on the server app. It's responsible for getting and storing data in the database.
 
+## Adding Watchman _(optional)_
+
+[Watchman](https://facebook.github.io/watchman/) is used to run process in background and when file changes - it recompiles your source code.
+
+```shell
+brew install watchman
+```
+
+## Change your `package.json`
+
+You have two apps - server and client. Now you need to make changes to the `package.json` file in each app.
+
+### `client/package.json`
+
+Make few changes:
+- change the `start` job to do not open web browser automatically when you starte the app
+- add `relay` job under `scripts`
+
+```json
+{
+  # ...
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    # ...
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx"
+  },
+  # ...
+}
+```
+
+### `server/package.json`
+
+```json
+{
+  # ...
+  "scripts": {
+    "start": "node src/index.js",
+    # ...
+  },
+  # ...
+}
+```
+
+## Run project
+
+You need to run client and server apps at the same time _(use two different terminal windows or tabs for this)_.
+
+```shell
+# run server app (the API server based on GraphQL)
+cd ~/workspace/my-project/server
+npm relay --watch
+npm start
+# run web app (UI part what we see in the browser)
+cd ~/workspace/my-project/client
+npm start
+```
+
+To stop server, press `Cmd + C` _(or `Ctrl + C` on some systems)_.
+
+----
 
 ## Additional useful information
 
-### Update to new release
+### How to update to a new release
 
 ```shell
 # To update to he latest version of a package use:
@@ -75,3 +129,5 @@ npm update package-name
 # To update all packages in the project use:
 npm update
 ```
+
+You can read more in this [manual](https://facebook.github.io/create-react-app/docs/installing-a-dependency).
