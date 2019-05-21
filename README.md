@@ -72,9 +72,9 @@ You have two apps - server and client. Now you need to make changes to the `pack
 
 ### `client/package.json`
 
-Make few changes:
-- change the `start` job to do not open web browser automatically when you starte the app
-- add `relay` job under `scripts`
+Make few changes in the `package.json` file:
+- change the `start` job to do not open web browser automatically when you start the app
+- add `relay` job under `scripts` to compile code with Relay support
 
 ```json
 {
@@ -86,6 +86,9 @@ Make few changes:
 ```
 
 ### `server/package.json`
+
+Make few changes in the `package.json` file:
+- add a `start` job to run web server
 
 ```json
 {
