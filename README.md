@@ -20,6 +20,12 @@ You need to have installed [node.js](https://nodejs.org) _(it comes with `npm 6+
 brew install node
 ```
 
+[Watchman](https://facebook.github.io/watchman/) is used to run process in background and when file changes - it recompiles the source code.
+
+```shell
+brew install watchman
+```
+
 ## Create a new project
 
 We use [create-react-app](https://github.com/facebook/create-react-app) to setup a new ReactJS project.
@@ -27,12 +33,13 @@ We use [create-react-app](https://github.com/facebook/create-react-app) to setup
 Inside your project you will have two application - **server** _(GraphQL)_ and **client** _(ReactJS + Relay)_.
 
 ```shell
-mkdir ~/workspace
-cd ~/workspace
-mkdir my-project
-cd my-project
+mkdir ~/workspace && cd ~/workspace
+mkdir my-project && cd my-project
+# create a client app
 npm init react-app client --typescript
-npm init react-app server --typescript
+# create a server app
+mkdir server && cd server
+npm init
 ```
 
 We use `TypeScript` to improve code quality. Read more about [how to add TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript) to a ReactJS project.
@@ -54,12 +61,11 @@ Use this [manual](https://facebook.github.io/create-react-app/docs/adding-relay)
 
 GraphQL is used on the server app. It's responsible for getting and storing data in the database.
 
-## Adding Watchman _(optional)_
-
-[Watchman](https://facebook.github.io/watchman/) is used to run process in background and when file changes - it recompiles your source code.
+We use `nodejs` and `express` framework to run our back-end (server) app.
 
 ```shell
-brew install watchman
+cd ~/workspace/my-project/server
+npm install express express-graphql graphql
 ```
 
 ## Change your `package.json`
