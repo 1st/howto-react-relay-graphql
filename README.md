@@ -65,7 +65,7 @@ We use `nodejs` and `express` framework to run our back-end (server) app.
 
 ```shell
 cd ~/workspace/my-project/server
-npm install express express-graphql graphql
+npm install --save express express-graphql graphql
 ```
 
 ## Change your `package.json`
