@@ -24,22 +24,18 @@ brew install node
 
 We use [create-react-app](https://github.com/facebook/create-react-app) to setup a new ReactJS project.
 
-Inside your project you will have two application - **server** _(GraphQL)_ and **client** _(ReactJS + Relay)_ ones.
+Inside your project you will have two application - **server** _(GraphQL)_ and **client** _(ReactJS + Relay)_.
 
 ```shell
 mkdir ~/workspace
 cd ~/workspace
 mkdir my-project
 cd my-project
-npm init react-app client
-npm init react-app server
+npm init react-app client --typescript
+npm init react-app server --typescript
 ```
 
-## Adding TypeScript
-
-You can use `TypeScript` to improve code quality.
-
-This [manual](https://facebook.github.io/create-react-app/docs/adding-typescript) describes how to add `TypeScript` to the project.
+We use `TypeScript` to improve code quality. Read more about [how to add TypeScript](https://facebook.github.io/create-react-app/docs/adding-typescript) to a ReactJS project.
 
 ## Adding Relay
 
@@ -128,3 +124,7 @@ npm update
 ```
 
 You can read more in this [manual](https://facebook.github.io/create-react-app/docs/installing-a-dependency).
+
+### Use `VSCode`
+
+The [VSCode](https://code.visualstudio.com) is the code editor with the best support of TypeScript. It has good support of ReactJS and plenty of other languages and frameworks. It works fast and updates every month with new features.
