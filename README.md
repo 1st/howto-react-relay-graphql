@@ -106,17 +106,73 @@ Add a `start` job to run web server with `npm start`:
 }
 ```
 
+## Fill some code
+
+## Server
+
+Create a new file `src/index.js` in the `server` directory with next content:
+```js
+# File: server/src/index.js
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
+const fs = require('fs');
+
+
+const schema_def = fs.readFileSync('src/schema.graphgl', 'utf8');
+var schema = buildSchema(schema_def);
+var root = { hello: () => 'Hello world!' };
+
+var app = express();
+app.use('/api', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000, () => console.log('Now browse to localhost:4000/api'));
+```
+
+Also create a file with GraphQL schema definition:
+```
+# File: server/src/schema.graphgl
+type Query {
+    hello: String
+}
+
+type User {
+  id: ID!
+  name: String!
+  links: [Link!]
+  votes: [Vote!]
+}
+
+type Link {
+  url: String!
+  postedBy: User
+  votes: [Vote!]
+}
+
+type Vote {
+  user: User
+  link: Link
+}
+```
+
+## Client
+
+...
+
 ## Run project
 
 You need to run client and server apps at the same time _(use two different terminal windows or tabs for this)_.
 
 ```shell
-# run server app (the API server based on GraphQL)
+# run a server app (the API server based on GraphQL)
 cd ~/workspace/my-project/server
-npm relay --watch
 npm start
-# run web app (UI part that we see in the browser)
+# run a web app (UI part that we see in the browser)
 cd ~/workspace/my-project/client
+npm relay --watch
 npm start
 ```
 
