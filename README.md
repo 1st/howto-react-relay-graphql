@@ -96,8 +96,7 @@ Make few changes in the `package.json` file:
 
 ### `server/package.json`
 
-Make few changes in the `package.json` file:
-- add a `start` job to run web server
+Add a `start` job to run web server with `npm start`:
 
 ```json
 {
