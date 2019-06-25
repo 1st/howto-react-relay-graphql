@@ -181,6 +181,8 @@ npm relay --watch
 npm start
 ```
 
+To open the web app, navigate to http://localhost:3000 and start changing your ReactJS app.
+
 To stop server, press `Cmd + C` _(or `Ctrl + C` on some systems)_.
 
 ----
