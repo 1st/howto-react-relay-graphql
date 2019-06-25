@@ -55,6 +55,13 @@ npm install --save react react-dom react-relay
 npm install --save-dev babel-plugin-relay relay-compiler graphql
 ```
 
+Now, in all places where you need to write GraphQL query, use next import:
+```js
+import graphql from 'babel-plugin-relay/macro';
+// instead of:
+//   import { graphql } from "babel-plugin-relay"
+```
+
 Use this [manual](https://facebook.github.io/create-react-app/docs/adding-relay) for more details.
 
 ## Adding GraphQL
