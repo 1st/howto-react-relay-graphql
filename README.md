@@ -170,6 +170,11 @@ You need to run client and server apps at the same time _(use two different term
 # run a server app (the API server based on GraphQL)
 cd ~/workspace/my-project/server
 npm start
+```
+
+Now open this link http://localhost:4000/api in a web browser. You can play with your GraphQL server, making requests and validating responses.
+
+```shell
 # run a web app (UI part that we see in the browser)
 cd ~/workspace/my-project/client
 npm relay --watch
